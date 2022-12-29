@@ -1,0 +1,20 @@
+<!-- article_like_dislike.html -->
+
+{% load static %}
+
+<button class="like-button" onclick="updateCount('like')">Like</button>
+<button class="dislike-button" onclick="updateCount('dislike')">Dislike</button>
+
+<div>Likes: {{ like_count }}</div>
+<div>Dislikes: {{ dislike_count }}</div>
+
+<script>
+function updateCount(likeType) {
+    // Make an AJAX request to the update_count view
+    $.get('{% url 'update_count' %}', {'type': likeType}, function(data) {
+        // Update the like and dislike count on the page
+        $('.like-count').text(data.like_count);
+        $('.dislike-count').text(data.dislike_count);
+    });
+}
+</script>

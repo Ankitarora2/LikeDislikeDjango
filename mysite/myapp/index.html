@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Like and Dislike Button</title>
+    <style>
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #4CAF50;
+  }
+  #like-button {
+    background-color: #2196F3;
+  }
+  p {
+    font-size: 18px;
+  }
+  span {
+    font-weight: bold;
+  }
+</style>
+
+</head>
+<body>
+  <h1>Like and Dislike Button</h1>
+  <button id="like-button">Like</button>
+  <button id="dislike-button">Dislike</button>
+  <p>Likes: <span id="like-count">0</span></p>
+  <p>Dislikes: <span id="dislike-count">0</span></p>
+<script>
+  const likeButton = document.getElementById('like-button');
+  const dislikeButton = document.getElementById('dislike-button');
+  const likeCount = document.getElementById('like-count');
+  const dislikeCount = document.getElementById('dislike-count');
+
+  let likes = 0;
+  let dislikes = 0;
+
+  likeButton.addEventListener('click', () => {
+    likes += 1;
+    likeCount.innerHTML = likes;
+  });
+
+  dislikeButton.addEventListener('click', () => {
+    dislikes += 1;
+    dislikeCount.innerHTML = dislikes;
+  });
+</script>
+
+</body>
+</html>
